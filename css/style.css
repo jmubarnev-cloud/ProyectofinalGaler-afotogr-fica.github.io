@@ -1,0 +1,179 @@
+/* =========================================
+   ESTILOS GENERALES: VISTA MÓVIL
+   Enfoque mobile-first, sin media query
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f7fa;
+    color: #17202a;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    padding: 30px 20px;
+    background-color: #0b3d5c;
+    color: #ffffff;
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+header p {
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+figure {
+    margin: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 3px solid #176b87;
+    border-radius: 12px;
+    color: #17202a;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 16px;
+}
+
+figcaption h2 {
+    margin-top: 0;
+    color: #0b3d5c;
+}
+
+figcaption p {
+    margin-bottom: 0;
+}
+
+footer {
+    padding: 25px 20px;
+    background-color: #0b3d5c;
+    color: #ffffff;
+    text-align: center;
+}
+
+.volver {
+    display: inline-block;
+    padding: 12px 18px;
+    background-color: #ffffff;
+    color: #0b3d5c;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.volver:hover,
+.volver:focus {
+    background-color: #d9edf7;
+    outline: 3px solid #ffcc00;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   PRIMERA MEDIA QUERY: TABLETA
+   Se activa desde 772px
+   ========================================= */
+
+@media screen and (min-width: 772px) {
+
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure {
+        border-radius: 50%;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================
+   SEGUNDA MEDIA QUERY: PANTALLA GRANDE
+   Se activa desde 992px
+   No utiliza max-width
+   ========================================= */
+
+@media screen and (min-width: 992px) {
+
+    figure {
+        border-radius: 0;
+    }
+
+    figure:last-child {
+        grid-column: auto;
+    }
+
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================
+   TERCERA MEDIA QUERY: MOVIMIENTO REDUCIDO
+   Elimina el desplazamiento suave
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+}
+
+
+/* =========================================
+   CUARTA MEDIA QUERY: ESQUEMA OSCURO
+   ========================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #101820;
+        color: #f5f5f5;
+    }
+
+    figure {
+        background-color: #263238;
+        color: #fff4b8;
+        border-color: #000000;
+    }
+
+    figcaption h2 {
+        color: #ffe082;
+    }
+
+}
